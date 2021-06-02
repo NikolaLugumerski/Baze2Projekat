@@ -1,4 +1,5 @@
 ﻿using ProgettiUI.ViewModel;
+using ProjekatBaze2;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,12 @@ namespace ProgettiUI.View
         public AddUpdateDirektor()
         {
             this.DataContext = new AddDirektorViewModel();
+            InitializeComponent();
+        }
+
+        public AddUpdateDirektor(Direktor direktor)
+        {
+            this.DataContext = new AddDirektorViewModel(direktor);
             InitializeComponent();
         }
     }

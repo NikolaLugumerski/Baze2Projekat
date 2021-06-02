@@ -28,5 +28,13 @@ namespace ProgettiUI.ViewModel
 
         }
 
+        public AddDirektorViewModel(Direktor direktor)
+        {
+            Direktor = direktor;
+
+            AddDirektorCommand = new AddDirektorCommand(Direktor);
+
+        }
+
     }
 }

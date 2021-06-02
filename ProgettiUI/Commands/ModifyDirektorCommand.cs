@@ -1,17 +1,14 @@
 ﻿using ProjekatBaze2;
-using ProjekatBaze2.Contexts;
-using ProjekatBaze2.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Input;
 
 namespace ProgettiUI.Commands
 {
-    public class AddDirektorCommand : ICommand
+    public class ModifyDirektorCommand : ICommand
     {
         private Direktor direktor;
 
@@ -21,15 +18,10 @@ namespace ProgettiUI.Commands
             set { direktor = value; }
         }
 
-
-
-        public AddDirektorCommand(Direktor direktor)
+        public ModifyDirektorCommand(Direktor direktor)
         {
             Direktor = direktor;
-     
         }
-
- 
 
         public event EventHandler CanExecuteChanged
         {
@@ -47,16 +39,7 @@ namespace ProgettiUI.Commands
 
         public void Execute(object parameter)
         {
-          
-                Direktor.Tip = TipRadnika.DIREKTOR;
-                DirektorContext direktorContext = new DirektorContext();
-                direktorContext.Add(Direktor);
-           
-         
-
+            throw new NotImplementedException();
         }
-
-
-
     }
 }

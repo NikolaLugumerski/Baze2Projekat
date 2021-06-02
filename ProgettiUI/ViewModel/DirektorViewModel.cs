@@ -30,10 +30,22 @@ namespace ProgettiUI.ViewModel
         }
 
 
-     
+        private Direktor selektovaniDirektor;
+        public Direktor SelektovaniDirektor
+        {
+            get { return selektovaniDirektor; }
+            set 
+            { 
+                selektovaniDirektor = value;
+                OnPropertyChanged("SelektovaniDirektor");
+            }
+        }
+
+        public RefreshDirektorCommand RefreshDirektorCommand { get; set; }
         public DirektorViewModel()
         {
-   
+            RefreshDirektorCommand RefreshDirektorCommand = new RefreshDirektorCommand(Direktori);
+         
         }
 
 

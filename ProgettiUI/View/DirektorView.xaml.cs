@@ -1,4 +1,5 @@
 ﻿using ProgettiUI.ViewModel;
+using ProjekatBaze2;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,14 +23,34 @@ namespace ProgettiUI.View
     {
         public DirektorView()
         {
-            DataContext = new DirektorViewModel();
+           
             InitializeComponent();
+            this.DataContext = new DirektorViewModel();
         }
 
         private void ButtonDodaj_Click(object sender, RoutedEventArgs e)
         {
             AddUpdateDirektor aud = new AddUpdateDirektor();
             aud.Show();
+        }
+
+        private Direktor selektovaniDirektor;
+        public Direktor SelektovaniDirektor
+        {
+            get { return selektovaniDirektor; }
+            set { selektovaniDirektor = value; }
+        }
+
+  
+        private void ButtonIzmeni_Click(object sender, RoutedEventArgs e)
+        {
+            AddUpdateDirektor aud = new AddUpdateDirektor(SelektovaniDirektor);
+            aud.Show();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+               
         }
     }
 }

@@ -3,15 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ProgettiUI.View"
+        xmlns:local="clr-namespace:ProgettiUI.View" xmlns:viewmodel="clr-namespace:ProgettiUI.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:DirektorViewModel}"
         mc:Ignorable="d"
         Title="DirektorView" Height="550" Width="800">
     <Grid>
         <Label Content="Pregled direktora" Margin="274,10,279,456" HorizontalAlignment="Center" FontSize="30"/>
         <Button Content="Dodaj" HorizontalAlignment="Left" Margin="30,88,0,0" VerticalAlignment="Top" Width="118" Height="33" Click="ButtonDodaj_Click" />
-        <Button Content="Izbrisi" HorizontalAlignment="Left" Margin="171,88,0,0" VerticalAlignment="Top" Width="140" Height="33" Command="{Binding Path=RemoveDirektorCommand}"/>
-        <Button Content="Izmeni" HorizontalAlignment="Left" Margin="341,88,0,0" VerticalAlignment="Top" Width="140" Height="33" Command="{Binding Path=UpdateDirektorCommand}"/>
-        <Button Content="Osvezi" HorizontalAlignment="Left" Margin="30,150,0,0" VerticalAlignment="Top" Width="90" Height="33" Command="{Binding Path=RefreshDirektorsCommand}"/>
+        <Button Content="Izbrisi" HorizontalAlignment="Left" Margin="171,88,0,0" VerticalAlignment="Top" Width="140" Height="33" />
+        <Button Content="Izmeni" HorizontalAlignment="Left" Margin="341,88,0,0" VerticalAlignment="Top" Width="140" Height="33" Click="ButtonIzmeni_Click"/>
+        <Button Content="Osvezi" HorizontalAlignment="Left" Margin="30,150,0,0" VerticalAlignment="Top" Width="90" Height="33"  Command="{Binding Path=RefreshDirektorCommand}" Click="Button_Click"/>
         <DataGrid  Height="300" Margin="30,200,39,19" 
             Foreground="Black" BorderBrush="Transparent" IsReadOnly="True" 
             SelectionMode="Single" AutoGenerateColumns="False"
