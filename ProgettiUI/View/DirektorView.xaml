@@ -5,8 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProgettiUI.View"
         mc:Ignorable="d"
-        Title="DirektorView" Height="450" Width="800">
+        Title="DirektorView" Height="550" Width="800">
     <Grid>
-        
+        <Label Content="Pregled direktora" Margin="274,10,279,456" HorizontalAlignment="Center" FontSize="30"/>
+        <Button Content="Dodaj" HorizontalAlignment="Left" Margin="30,88,0,0" VerticalAlignment="Top" Width="118" Height="33" Click="ButtonDodaj_Click" />
+        <Button Content="Izbrisi" HorizontalAlignment="Left" Margin="171,88,0,0" VerticalAlignment="Top" Width="140" Height="33" Command="{Binding Path=RemoveDirektorCommand}"/>
+        <Button Content="Izmeni" HorizontalAlignment="Left" Margin="341,88,0,0" VerticalAlignment="Top" Width="140" Height="33" Command="{Binding Path=UpdateDirektorCommand}"/>
+        <Button Content="Osvezi" HorizontalAlignment="Left" Margin="30,150,0,0" VerticalAlignment="Top" Width="90" Height="33" Command="{Binding Path=RefreshDirektorsCommand}"/>
+        <DataGrid  Height="300" Margin="30,200,39,19" 
+            Foreground="Black" BorderBrush="Transparent" IsReadOnly="True" 
+            SelectionMode="Single" AutoGenerateColumns="False"
+            ItemsSource="{Binding Direktori, UpdateSourceTrigger=PropertyChanged}"
+            SelectedItem="{Binding SelektovaniDirektor}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id radnika" Width="120" Binding="{Binding IdRad}"/>
+                <DataGridTextColumn Header="Ime" Width="120" Binding="{Binding Ime}"/>
+                <DataGridTextColumn Header="Prezime" Width="120" Binding="{Binding Prz}"/>
+                <DataGridTextColumn Header="Plata" Width="120" Binding="{Binding Plt}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>

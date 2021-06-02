@@ -16,20 +16,14 @@ using System.Windows.Shapes;
 namespace ProgettiUI.View
 {
     /// <summary>
-    /// Interaction logic for DirektorView.xaml
+    /// Interaction logic for AddUpdateDirektor.xaml
     /// </summary>
-    public partial class DirektorView : Window
+    public partial class AddUpdateDirektor : Window
     {
-        public DirektorView()
+        public AddUpdateDirektor()
         {
-            DataContext = new DirektorViewModel();
+            this.DataContext = new AddDirektorViewModel();
             InitializeComponent();
-        }
-
-        private void ButtonDodaj_Click(object sender, RoutedEventArgs e)
-        {
-            AddUpdateDirektor aud = new AddUpdateDirektor();
-            aud.Show();
         }
     }
 }

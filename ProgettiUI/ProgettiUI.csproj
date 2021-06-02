@@ -55,8 +55,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\AddDirektorCommand.cs" />
     <Compile Include="Commands\ShowDirektorCommand.cs" />
+    <Compile Include="ViewModel\AddDirektorViewModel.cs" />
+    <Compile Include="ViewModel\DirektorViewModel.cs" />
     <Compile Include="ViewModel\NavigationViewModel.cs" />
+    <Compile Include="View\AddUpdateDirektor.xaml.cs">
+      <DependentUpon>AddUpdateDirektor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\DirektorView.xaml.cs">
       <DependentUpon>DirektorView.xaml</DependentUpon>
     </Compile>
@@ -67,6 +73,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\AddUpdateDirektor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\DirektorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -102,6 +112,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ProjekatBaze2\ProjekatBaze2.csproj">
+      <Project>{24eabc26-f68a-4c1d-a62a-f1648367f347}</Project>
+      <Name>ProjekatBaze2</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
