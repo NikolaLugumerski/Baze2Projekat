@@ -13,37 +13,104 @@
     <EntitySet Name="TrakaSet" EntityType="ModelDB.Store.TrakaSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="MasinaSet" EntityType="ModelDB.Store.MasinaSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="AlatSet" EntityType="ModelDB.Store.AlatSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OdnosiSet" EntityType="ModelDB.Store.OdnosiSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ObucavaSet" EntityType="ModelDB.Store.ObucavaSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="KontroliseSet" EntityType="ModelDB.Store.KontroliseSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="KoristiSet" EntityType="ModelDB.Store.KoristiSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UpotrebljavaSet" EntityType="ModelDB.Store.UpotrebljavaSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PodesavaSet" EntityType="ModelDB.Store.PodesavaSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GotovProizvodSet" EntityType="ModelDB.Store.GotovProizvodSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="RadnikSet_Direktor" EntityType="ModelDB.Store.RadnikSet_Direktor" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="RadnikSet_Sef" EntityType="ModelDB.Store.RadnikSet_Sef" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RadnikSet_Magacioner" EntityType="ModelDB.Store.RadnikSet_Magacioner" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="RadnikSet_SefPripreme" EntityType="ModelDB.Store.RadnikSet_SefPripreme" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="RadnikSet_SefProizvodnje" EntityType="ModelDB.Store.RadnikSet_SefProizvodnje" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TrakaSet_TrakaUPripremi" EntityType="ModelDB.Store.TrakaSet_TrakaUPripremi" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TrakaSet_TrakaUProizvodnji" EntityType="ModelDB.Store.TrakaSet_TrakaUProizvodnji" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="RadnikSet_Normer" EntityType="ModelDB.Store.RadnikSet_Normer" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="RadnikSet_Magacioner" EntityType="ModelDB.Store.RadnikSet_Magacioner" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="RadnikSet_Majstorica" EntityType="ModelDB.Store.RadnikSet_Majstorica" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="RadnikSet_RadnikNaTraci" EntityType="ModelDB.Store.RadnikSet_RadnikNaTraci" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="RadnikSet_RadnikSaAlatom" EntityType="ModelDB.Store.RadnikSet_RadnikSaAlatom" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="RadnikSet_RadnikZaMasinom" EntityType="ModelDB.Store.RadnikSet_RadnikZaMasinom" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RadnikSet_Normer" EntityType="ModelDB.Store.RadnikSet_Normer" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TrakaSet_TrakaUPripremi" EntityType="ModelDB.Store.TrakaSet_TrakaUPripremi" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TrakaSet_TrakaUProizvodnji" EntityType="ModelDB.Store.TrakaSet_TrakaUProizvodnji" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="DirektorSef" Association="ModelDB.Store.DirektorSef">
       <End Role="Direktor" EntitySet="RadnikSet_Direktor" />
       <End Role="Sef" EntitySet="RadnikSet_Sef" />
     </AssociationSet>
-    <AssociationSet Name="SefPripremePriprema" Association="ModelDB.Store.SefPripremePriprema">
+    <AssociationSet Name="MagacionerOdnosi" Association="ModelDB.Store.MagacionerOdnosi">
+      <End Role="Magacioner" EntitySet="RadnikSet_Magacioner" />
+      <End Role="Odnosi" EntitySet="OdnosiSet" />
+    </AssociationSet>
+    <AssociationSet Name="MaterijalOdnosi" Association="ModelDB.Store.MaterijalOdnosi">
+      <End Role="Materijal" EntitySet="MaterijalSet" />
+      <End Role="Odnosi" EntitySet="OdnosiSet" />
+    </AssociationSet>
+    <AssociationSet Name="MaterijalPriprema" Association="ModelDB.Store.MaterijalPriprema">
+      <End Role="Materijal" EntitySet="MaterijalSet" />
+      <End Role="Priprema" EntitySet="PripremaSet" />
+    </AssociationSet>
+    <AssociationSet Name="SefPripremePriprema" Association="ModelDB.Store.NadgledaPripremu">
       <End Role="SefPripreme" EntitySet="RadnikSet_SefPripreme" />
       <End Role="Priprema" EntitySet="PripremaSet" />
     </AssociationSet>
-    <AssociationSet Name="SefProizvodnjeProizvodnja" Association="ModelDB.Store.SefProizvodnjeProizvodnja">
+    <AssociationSet Name="NadgledaProizvodnju" Association="ModelDB.Store.NadgledaProizvodnju">
       <End Role="SefProizvodnje" EntitySet="RadnikSet_SefProizvodnje" />
       <End Role="Proizvodnja" EntitySet="ProizvodnjaSet" />
     </AssociationSet>
-    <AssociationSet Name="TrakaUPripremiPriprema" Association="ModelDB.Store.TrakaUPripremiPriprema">
-      <End Role="TrakaUPripremi" EntitySet="TrakaSet_TrakaUPripremi" />
-      <End Role="Priprema" EntitySet="PripremaSet" />
+    <AssociationSet Name="ObucavaMajstorica" Association="ModelDB.Store.ObucavaMajstorica">
+      <End Role="Obucava" EntitySet="ObucavaSet" />
+      <End Role="Majstorica" EntitySet="RadnikSet_Majstorica" />
     </AssociationSet>
-    <AssociationSet Name="TrakaUProizvodnjiProizvodnja" Association="ModelDB.Store.TrakaUProizvodnjiProizvodnja">
-      <End Role="TrakaUProizvodnji" EntitySet="TrakaSet_TrakaUProizvodnji" />
+    <AssociationSet Name="ObucavaRadnikNaTraci" Association="ModelDB.Store.ObucavaRadnikNaTraci">
+      <End Role="Obucava" EntitySet="ObucavaSet" />
+      <End Role="RadnikNaTraci" EntitySet="RadnikSet_RadnikNaTraci" />
+    </AssociationSet>
+    <AssociationSet Name="KontroliseMajstorica" Association="ModelDB.Store.KontroliseMajstorica">
+      <End Role="Kontrolise" EntitySet="KontroliseSet" />
+      <End Role="Majstorica" EntitySet="RadnikSet_Majstorica" />
+    </AssociationSet>
+    <AssociationSet Name="KontroliseRadnikNaTraci" Association="ModelDB.Store.KontroliseRadnikNaTraci">
+      <End Role="Kontrolise" EntitySet="KontroliseSet" />
+      <End Role="RadnikNaTraci" EntitySet="RadnikSet_RadnikNaTraci" />
+    </AssociationSet>
+    <AssociationSet Name="KoristiRadnikSaAlatom" Association="ModelDB.Store.KoristiRadnikSaAlatom">
+      <End Role="Koristi" EntitySet="KoristiSet" />
+      <End Role="RadnikSaAlatom" EntitySet="RadnikSet_RadnikSaAlatom" />
+    </AssociationSet>
+    <AssociationSet Name="KoristiAlat" Association="ModelDB.Store.KoristiAlat">
+      <End Role="Koristi" EntitySet="KoristiSet" />
+      <End Role="Alat" EntitySet="AlatSet" />
+    </AssociationSet>
+    <AssociationSet Name="RadnikZaMasinomUpotrebljava" Association="ModelDB.Store.RadnikZaMasinomUpotrebljava">
+      <End Role="Upotrebljava" EntitySet="UpotrebljavaSet" />
+      <End Role="RadnikZaMasinom" EntitySet="RadnikSet_RadnikZaMasinom" />
+    </AssociationSet>
+    <AssociationSet Name="MasinaUpotrebljava" Association="ModelDB.Store.MasinaUpotrebljava">
+      <End Role="Masina" EntitySet="MasinaSet" />
+      <End Role="Upotrebljava" EntitySet="UpotrebljavaSet" />
+    </AssociationSet>
+    <AssociationSet Name="TrakaRadnikNaTraci" Association="ModelDB.Store.TrakaRadnikNaTraci">
+      <End Role="Traka" EntitySet="TrakaSet" />
+      <End Role="RadnikNaTraci" EntitySet="RadnikSet_RadnikNaTraci" />
+    </AssociationSet>
+    <AssociationSet Name="NormerPodesava" Association="ModelDB.Store.NormerPodesava">
+      <End Role="Normer" EntitySet="RadnikSet_Normer" />
+      <End Role="Podesava" EntitySet="PodesavaSet" />
+    </AssociationSet>
+    <AssociationSet Name="TrakaPodesava" Association="ModelDB.Store.TrakaPodesava">
+      <End Role="Traka" EntitySet="TrakaSet" />
+      <End Role="Podesava" EntitySet="PodesavaSet" />
+    </AssociationSet>
+    <AssociationSet Name="Proizvodi" Association="ModelDB.Store.Proizvodi">
+      <End Role="GotovProizvod" EntitySet="GotovProizvodSet" />
       <End Role="Proizvodnja" EntitySet="ProizvodnjaSet" />
+    </AssociationSet>
+    <AssociationSet Name="NalaziSe" Association="ModelDB.Store.NalaziSe">
+      <End Role="Priprema" EntitySet="PripremaSet" />
+      <End Role="TrakaUPripremi" EntitySet="TrakaSet_TrakaUPripremi" />
+    </AssociationSet>
+    <AssociationSet Name="ProizvodnjaTrakaUProizvodnji" Association="ModelDB.Store.ProizvodnjaTrakaUProizvodnji">
+      <End Role="Proizvodnja" EntitySet="ProizvodnjaSet" />
+      <End Role="TrakaUProizvodnji" EntitySet="TrakaSet_TrakaUProizvodnji" />
     </AssociationSet>
     <AssociationSet Name="FK_Direktor_inherits_Radnik" Association="ModelDB.Store.FK_Direktor_inherits_Radnik">
       <End Role="Radnik" EntitySet="RadnikSet" />
@@ -53,6 +120,10 @@
       <End Role="Radnik" EntitySet="RadnikSet" />
       <End Role="Sef" EntitySet="RadnikSet_Sef" />
     </AssociationSet>
+    <AssociationSet Name="FK_Magacioner_inherits_Radnik" Association="ModelDB.Store.FK_Magacioner_inherits_Radnik">
+      <End Role="Radnik" EntitySet="RadnikSet" />
+      <End Role="Magacioner" EntitySet="RadnikSet_Magacioner" />
+    </AssociationSet>
     <AssociationSet Name="FK_SefPripreme_inherits_Sef" Association="ModelDB.Store.FK_SefPripreme_inherits_Sef">
       <End Role="Sef" EntitySet="RadnikSet_Sef" />
       <End Role="SefPripreme" EntitySet="RadnikSet_SefPripreme" />
@@ -60,22 +131,6 @@
     <AssociationSet Name="FK_SefProizvodnje_inherits_Sef" Association="ModelDB.Store.FK_SefProizvodnje_inherits_Sef">
       <End Role="Sef" EntitySet="RadnikSet_Sef" />
       <End Role="SefProizvodnje" EntitySet="RadnikSet_SefProizvodnje" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TrakaUPripremi_inherits_Traka" Association="ModelDB.Store.FK_TrakaUPripremi_inherits_Traka">
-      <End Role="Traka" EntitySet="TrakaSet" />
-      <End Role="TrakaUPripremi" EntitySet="TrakaSet_TrakaUPripremi" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TrakaUProizvodnji_inherits_Traka" Association="ModelDB.Store.FK_TrakaUProizvodnji_inherits_Traka">
-      <End Role="Traka" EntitySet="TrakaSet" />
-      <End Role="TrakaUProizvodnji" EntitySet="TrakaSet_TrakaUProizvodnji" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Normer_inherits_Radnik" Association="ModelDB.Store.FK_Normer_inherits_Radnik">
-      <End Role="Radnik" EntitySet="RadnikSet" />
-      <End Role="Normer" EntitySet="RadnikSet_Normer" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Magacioner_inherits_Radnik" Association="ModelDB.Store.FK_Magacioner_inherits_Radnik">
-      <End Role="Radnik" EntitySet="RadnikSet" />
-      <End Role="Magacioner" EntitySet="RadnikSet_Magacioner" />
     </AssociationSet>
     <AssociationSet Name="FK_Majstorica_inherits_Radnik" Association="ModelDB.Store.FK_Majstorica_inherits_Radnik">
       <End Role="Radnik" EntitySet="RadnikSet" />
@@ -93,6 +148,18 @@
       <End Role="RadnikNaTraci" EntitySet="RadnikSet_RadnikNaTraci" />
       <End Role="RadnikZaMasinom" EntitySet="RadnikSet_RadnikZaMasinom" />
     </AssociationSet>
+    <AssociationSet Name="FK_Normer_inherits_Radnik" Association="ModelDB.Store.FK_Normer_inherits_Radnik">
+      <End Role="Radnik" EntitySet="RadnikSet" />
+      <End Role="Normer" EntitySet="RadnikSet_Normer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TrakaUPripremi_inherits_Traka" Association="ModelDB.Store.FK_TrakaUPripremi_inherits_Traka">
+      <End Role="Traka" EntitySet="TrakaSet" />
+      <End Role="TrakaUPripremi" EntitySet="TrakaSet_TrakaUPripremi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TrakaUProizvodnji_inherits_Traka" Association="ModelDB.Store.FK_TrakaUProizvodnji_inherits_Traka">
+      <End Role="Traka" EntitySet="TrakaSet" />
+      <End Role="TrakaUProizvodnji" EntitySet="TrakaSet_TrakaUProizvodnji" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="RadnikSet">
     <Key>
@@ -102,6 +169,7 @@
     <Property Name="Ime" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Prz" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Plt" Type="int" Nullable="false" />
+    <Property Name="Tip" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="PripremaSet">
     <Key>
@@ -128,12 +196,15 @@
     <Property Name="BojaMat" Type="nvarchar(max)" Nullable="false" />
     <Property Name="SasMat" Type="nvarchar(max)" Nullable="false" />
     <Property Name="PripremaOznPrip" Type="int" Nullable="false" />
+    <Property Name="Priprema_OznPrip" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="TrakaSet">
     <Key>
       <PropertyRef Name="OznTr" />
     </Key>
     <Property Name="OznTr" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TipTr" Type="int" Nullable="false" />
+    <Property Name="BrRadTr" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="MasinaSet">
     <Key>
@@ -151,6 +222,66 @@
     <Property Name="TipAl" Type="nvarchar(max)" Nullable="false" />
     <Property Name="KolAl" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="OdnosiSet">
+    <Key>
+      <PropertyRef Name="MagacionerIdRad" />
+      <PropertyRef Name="MaterijalOznMat" />
+    </Key>
+    <Property Name="KolMat" Type="int" Nullable="false" />
+    <Property Name="MagacionerIdRad" Type="int" Nullable="false" />
+    <Property Name="MaterijalOznMat" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ObucavaSet">
+    <Key>
+      <PropertyRef Name="MajstoricaIdRad" />
+      <PropertyRef Name="RadnikNaTraciIdRad" />
+    </Key>
+    <Property Name="MajstoricaIdRad" Type="int" Nullable="false" />
+    <Property Name="RadnikNaTraciIdRad" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KontroliseSet">
+    <Key>
+      <PropertyRef Name="MajstoricaIdRad" />
+      <PropertyRef Name="RadnikNaTraciIdRad2" />
+    </Key>
+    <Property Name="MajstoricaIdRad" Type="int" Nullable="false" />
+    <Property Name="RadnikNaTraciIdRad2" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KoristiSet">
+    <Key>
+      <PropertyRef Name="RadnikSaAlatomIdRad" />
+      <PropertyRef Name="AlatSrBrAl" />
+    </Key>
+    <Property Name="RadnikSaAlatomIdRad" Type="int" Nullable="false" />
+    <Property Name="AlatSrBrAl" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UpotrebljavaSet">
+    <Key>
+      <PropertyRef Name="RadnikZaMasinomIdRad" />
+      <PropertyRef Name="MasinaSrBrMsn" />
+    </Key>
+    <Property Name="RadnikZaMasinomIdRad" Type="int" Nullable="false" />
+    <Property Name="MasinaSrBrMsn" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PodesavaSet">
+    <Key>
+      <PropertyRef Name="NormerIdRad" />
+      <PropertyRef Name="TrakaOznTr" />
+    </Key>
+    <Property Name="NormerIdRad" Type="int" Nullable="false" />
+    <Property Name="TrakaOznTr" Type="int" Nullable="false" />
+    <Property Name="BrzTr" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GotovProizvodSet">
+    <Key>
+      <PropertyRef Name="SrBrPr" />
+    </Key>
+    <Property Name="SrBrPr" Type="int" Nullable="false" />
+    <Property Name="Cena" Type="int" Nullable="false" />
+    <Property Name="DuzPr" Type="int" Nullable="false" />
+    <Property Name="SirPr" Type="int" Nullable="false" />
+    <Property Name="ProizvodnjaOznProiz" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="RadnikSet_Direktor">
     <Key>
       <PropertyRef Name="IdRad" />
@@ -162,46 +293,27 @@
       <PropertyRef Name="IdRad" />
     </Key>
     <Property Name="DirektorIdRad" Type="int" Nullable="false" />
-    <Property Name="IdRad" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="RadnikSet_SefPripreme">
-    <Key>
-      <PropertyRef Name="IdRad" />
-    </Key>
-    <Property Name="IdRad" Type="int" Nullable="false" />
-    <Property Name="Priprema_OznPrip" Type="int" Nullable="true" />
-  </EntityType>
-  <EntityType Name="RadnikSet_SefProizvodnje">
-    <Key>
-      <PropertyRef Name="IdRad" />
-    </Key>
-    <Property Name="IdRad" Type="int" Nullable="false" />
-    <Property Name="Proizvodnja_OznProiz" Type="int" Nullable="true" />
-  </EntityType>
-  <EntityType Name="TrakaSet_TrakaUPripremi">
-    <Key>
-      <PropertyRef Name="OznTr" />
-    </Key>
-    <Property Name="OznTr" Type="int" Nullable="false" />
-    <Property Name="Priprema_OznPrip" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="TrakaSet_TrakaUProizvodnji">
-    <Key>
-      <PropertyRef Name="OznTr" />
-    </Key>
-    <Property Name="OznTr" Type="int" Nullable="false" />
-    <Property Name="Proizvodnja_OznProiz" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="RadnikSet_Normer">
-    <Key>
-      <PropertyRef Name="IdRad" />
-    </Key>
+    <Property Name="Odsek" Type="int" Nullable="false" />
     <Property Name="IdRad" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="RadnikSet_Magacioner">
     <Key>
       <PropertyRef Name="IdRad" />
     </Key>
+    <Property Name="IdRad" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RadnikSet_SefPripreme">
+    <Key>
+      <PropertyRef Name="IdRad" />
+    </Key>
+    <Property Name="PripremaOznPrip" Type="int" Nullable="true" />
+    <Property Name="IdRad" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RadnikSet_SefProizvodnje">
+    <Key>
+      <PropertyRef Name="IdRad" />
+    </Key>
+    <Property Name="ProizvodnjaOznProiz" Type="int" Nullable="true" />
     <Property Name="IdRad" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="RadnikSet_Majstorica">
@@ -215,6 +327,8 @@
       <PropertyRef Name="IdRad" />
     </Key>
     <Property Name="KoefRad" Type="float" Nullable="false" />
+    <Property Name="Spec" Type="int" Nullable="false" />
+    <Property Name="TrakaOznTr" Type="int" Nullable="true" />
     <Property Name="IdRad" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="RadnikSet_RadnikSaAlatom">
@@ -229,6 +343,26 @@
     </Key>
     <Property Name="IdRad" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="RadnikSet_Normer">
+    <Key>
+      <PropertyRef Name="IdRad" />
+    </Key>
+    <Property Name="IdRad" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TrakaSet_TrakaUPripremi">
+    <Key>
+      <PropertyRef Name="OznTr" />
+    </Key>
+    <Property Name="PripremaOznPrip" Type="int" Nullable="false" />
+    <Property Name="OznTr" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TrakaSet_TrakaUProizvodnji">
+    <Key>
+      <PropertyRef Name="OznTr" />
+    </Key>
+    <Property Name="ProizvodnjaOznProiz" Type="int" Nullable="false" />
+    <Property Name="OznTr" Type="int" Nullable="false" />
+  </EntityType>
   <Association Name="DirektorSef">
     <End Role="Direktor" Type="ModelDB.Store.RadnikSet_Direktor" Multiplicity="1" />
     <End Role="Sef" Type="ModelDB.Store.RadnikSet_Sef" Multiplicity="*" />
@@ -241,7 +375,43 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="SefPripremePriprema">
+  <Association Name="MagacionerOdnosi">
+    <End Role="Magacioner" Type="ModelDB.Store.RadnikSet_Magacioner" Multiplicity="1" />
+    <End Role="Odnosi" Type="ModelDB.Store.OdnosiSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Magacioner">
+        <PropertyRef Name="IdRad" />
+      </Principal>
+      <Dependent Role="Odnosi">
+        <PropertyRef Name="MagacionerIdRad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MaterijalOdnosi">
+    <End Role="Materijal" Type="ModelDB.Store.MaterijalSet" Multiplicity="1" />
+    <End Role="Odnosi" Type="ModelDB.Store.OdnosiSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materijal">
+        <PropertyRef Name="OznMat" />
+      </Principal>
+      <Dependent Role="Odnosi">
+        <PropertyRef Name="MaterijalOznMat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MaterijalPriprema">
+    <End Role="Materijal" Type="ModelDB.Store.MaterijalSet" Multiplicity="*" />
+    <End Role="Priprema" Type="ModelDB.Store.PripremaSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Priprema">
+        <PropertyRef Name="OznPrip" />
+      </Principal>
+      <Dependent Role="Materijal">
+        <PropertyRef Name="Priprema_OznPrip" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="NadgledaPripremu">
     <End Role="SefPripreme" Type="ModelDB.Store.RadnikSet_SefPripreme" Multiplicity="*" />
     <End Role="Priprema" Type="ModelDB.Store.PripremaSet" Multiplicity="0..1" />
     <ReferentialConstraint>
@@ -249,11 +419,11 @@
         <PropertyRef Name="OznPrip" />
       </Principal>
       <Dependent Role="SefPripreme">
-        <PropertyRef Name="Priprema_OznPrip" />
+        <PropertyRef Name="PripremaOznPrip" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="SefProizvodnjeProizvodnja">
+  <Association Name="NadgledaProizvodnju">
     <End Role="SefProizvodnje" Type="ModelDB.Store.RadnikSet_SefProizvodnje" Multiplicity="*" />
     <End Role="Proizvodnja" Type="ModelDB.Store.ProizvodnjaSet" Multiplicity="0..1" />
     <ReferentialConstraint>
@@ -261,31 +431,175 @@
         <PropertyRef Name="OznProiz" />
       </Principal>
       <Dependent Role="SefProizvodnje">
-        <PropertyRef Name="Proizvodnja_OznProiz" />
+        <PropertyRef Name="ProizvodnjaOznProiz" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="TrakaUPripremiPriprema">
-    <End Role="TrakaUPripremi" Type="ModelDB.Store.TrakaSet_TrakaUPripremi" Multiplicity="*" />
-    <End Role="Priprema" Type="ModelDB.Store.PripremaSet" Multiplicity="1" />
+  <Association Name="ObucavaMajstorica">
+    <End Role="Obucava" Type="ModelDB.Store.ObucavaSet" Multiplicity="*" />
+    <End Role="Majstorica" Type="ModelDB.Store.RadnikSet_Majstorica" Multiplicity="1" />
     <ReferentialConstraint>
-      <Principal Role="Priprema">
-        <PropertyRef Name="OznPrip" />
+      <Principal Role="Majstorica">
+        <PropertyRef Name="IdRad" />
       </Principal>
-      <Dependent Role="TrakaUPripremi">
-        <PropertyRef Name="Priprema_OznPrip" />
+      <Dependent Role="Obucava">
+        <PropertyRef Name="MajstoricaIdRad" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="TrakaUProizvodnjiProizvodnja">
-    <End Role="TrakaUProizvodnji" Type="ModelDB.Store.TrakaSet_TrakaUProizvodnji" Multiplicity="*" />
+  <Association Name="ObucavaRadnikNaTraci">
+    <End Role="Obucava" Type="ModelDB.Store.ObucavaSet" Multiplicity="*" />
+    <End Role="RadnikNaTraci" Type="ModelDB.Store.RadnikSet_RadnikNaTraci" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="RadnikNaTraci">
+        <PropertyRef Name="IdRad" />
+      </Principal>
+      <Dependent Role="Obucava">
+        <PropertyRef Name="RadnikNaTraciIdRad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="KontroliseMajstorica">
+    <End Role="Kontrolise" Type="ModelDB.Store.KontroliseSet" Multiplicity="*" />
+    <End Role="Majstorica" Type="ModelDB.Store.RadnikSet_Majstorica" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Majstorica">
+        <PropertyRef Name="IdRad" />
+      </Principal>
+      <Dependent Role="Kontrolise">
+        <PropertyRef Name="MajstoricaIdRad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="KontroliseRadnikNaTraci">
+    <End Role="Kontrolise" Type="ModelDB.Store.KontroliseSet" Multiplicity="*" />
+    <End Role="RadnikNaTraci" Type="ModelDB.Store.RadnikSet_RadnikNaTraci" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="RadnikNaTraci">
+        <PropertyRef Name="IdRad" />
+      </Principal>
+      <Dependent Role="Kontrolise">
+        <PropertyRef Name="RadnikNaTraciIdRad2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="KoristiRadnikSaAlatom">
+    <End Role="Koristi" Type="ModelDB.Store.KoristiSet" Multiplicity="*" />
+    <End Role="RadnikSaAlatom" Type="ModelDB.Store.RadnikSet_RadnikSaAlatom" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="RadnikSaAlatom">
+        <PropertyRef Name="IdRad" />
+      </Principal>
+      <Dependent Role="Koristi">
+        <PropertyRef Name="RadnikSaAlatomIdRad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="KoristiAlat">
+    <End Role="Koristi" Type="ModelDB.Store.KoristiSet" Multiplicity="*" />
+    <End Role="Alat" Type="ModelDB.Store.AlatSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Alat">
+        <PropertyRef Name="SrBrAl" />
+      </Principal>
+      <Dependent Role="Koristi">
+        <PropertyRef Name="AlatSrBrAl" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RadnikZaMasinomUpotrebljava">
+    <End Role="Upotrebljava" Type="ModelDB.Store.UpotrebljavaSet" Multiplicity="*" />
+    <End Role="RadnikZaMasinom" Type="ModelDB.Store.RadnikSet_RadnikZaMasinom" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="RadnikZaMasinom">
+        <PropertyRef Name="IdRad" />
+      </Principal>
+      <Dependent Role="Upotrebljava">
+        <PropertyRef Name="RadnikZaMasinomIdRad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MasinaUpotrebljava">
+    <End Role="Masina" Type="ModelDB.Store.MasinaSet" Multiplicity="1" />
+    <End Role="Upotrebljava" Type="ModelDB.Store.UpotrebljavaSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Masina">
+        <PropertyRef Name="SrBrMsn" />
+      </Principal>
+      <Dependent Role="Upotrebljava">
+        <PropertyRef Name="MasinaSrBrMsn" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TrakaRadnikNaTraci">
+    <End Role="Traka" Type="ModelDB.Store.TrakaSet" Multiplicity="0..1" />
+    <End Role="RadnikNaTraci" Type="ModelDB.Store.RadnikSet_RadnikNaTraci" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Traka">
+        <PropertyRef Name="OznTr" />
+      </Principal>
+      <Dependent Role="RadnikNaTraci">
+        <PropertyRef Name="TrakaOznTr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="NormerPodesava">
+    <End Role="Normer" Type="ModelDB.Store.RadnikSet_Normer" Multiplicity="1" />
+    <End Role="Podesava" Type="ModelDB.Store.PodesavaSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Normer">
+        <PropertyRef Name="IdRad" />
+      </Principal>
+      <Dependent Role="Podesava">
+        <PropertyRef Name="NormerIdRad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TrakaPodesava">
+    <End Role="Traka" Type="ModelDB.Store.TrakaSet" Multiplicity="1" />
+    <End Role="Podesava" Type="ModelDB.Store.PodesavaSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Traka">
+        <PropertyRef Name="OznTr" />
+      </Principal>
+      <Dependent Role="Podesava">
+        <PropertyRef Name="TrakaOznTr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Proizvodi">
+    <End Role="GotovProizvod" Type="ModelDB.Store.GotovProizvodSet" Multiplicity="*" />
     <End Role="Proizvodnja" Type="ModelDB.Store.ProizvodnjaSet" Multiplicity="1" />
     <ReferentialConstraint>
       <Principal Role="Proizvodnja">
         <PropertyRef Name="OznProiz" />
       </Principal>
+      <Dependent Role="GotovProizvod">
+        <PropertyRef Name="ProizvodnjaOznProiz" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="NalaziSe">
+    <End Role="Priprema" Type="ModelDB.Store.PripremaSet" Multiplicity="1" />
+    <End Role="TrakaUPripremi" Type="ModelDB.Store.TrakaSet_TrakaUPripremi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Priprema">
+        <PropertyRef Name="OznPrip" />
+      </Principal>
+      <Dependent Role="TrakaUPripremi">
+        <PropertyRef Name="PripremaOznPrip" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProizvodnjaTrakaUProizvodnji">
+    <End Role="Proizvodnja" Type="ModelDB.Store.ProizvodnjaSet" Multiplicity="1" />
+    <End Role="TrakaUProizvodnji" Type="ModelDB.Store.TrakaSet_TrakaUProizvodnji" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proizvodnja">
+        <PropertyRef Name="OznProiz" />
+      </Principal>
       <Dependent Role="TrakaUProizvodnji">
-        <PropertyRef Name="Proizvodnja_OznProiz" />
+        <PropertyRef Name="ProizvodnjaOznProiz" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -317,6 +631,20 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Magacioner_inherits_Radnik">
+    <End Role="Radnik" Type="ModelDB.Store.RadnikSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Magacioner" Type="ModelDB.Store.RadnikSet_Magacioner" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Radnik">
+        <PropertyRef Name="IdRad" />
+      </Principal>
+      <Dependent Role="Magacioner">
+        <PropertyRef Name="IdRad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_SefPripreme_inherits_Sef">
     <End Role="Sef" Type="ModelDB.Store.RadnikSet_Sef" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -341,62 +669,6 @@
         <PropertyRef Name="IdRad" />
       </Principal>
       <Dependent Role="SefProizvodnje">
-        <PropertyRef Name="IdRad" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TrakaUPripremi_inherits_Traka">
-    <End Role="Traka" Type="ModelDB.Store.TrakaSet" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="TrakaUPripremi" Type="ModelDB.Store.TrakaSet_TrakaUPripremi" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Traka">
-        <PropertyRef Name="OznTr" />
-      </Principal>
-      <Dependent Role="TrakaUPripremi">
-        <PropertyRef Name="OznTr" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TrakaUProizvodnji_inherits_Traka">
-    <End Role="Traka" Type="ModelDB.Store.TrakaSet" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="TrakaUProizvodnji" Type="ModelDB.Store.TrakaSet_TrakaUProizvodnji" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Traka">
-        <PropertyRef Name="OznTr" />
-      </Principal>
-      <Dependent Role="TrakaUProizvodnji">
-        <PropertyRef Name="OznTr" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Normer_inherits_Radnik">
-    <End Role="Radnik" Type="ModelDB.Store.RadnikSet" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="Normer" Type="ModelDB.Store.RadnikSet_Normer" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Radnik">
-        <PropertyRef Name="IdRad" />
-      </Principal>
-      <Dependent Role="Normer">
-        <PropertyRef Name="IdRad" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Magacioner_inherits_Radnik">
-    <End Role="Radnik" Type="ModelDB.Store.RadnikSet" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="Magacioner" Type="ModelDB.Store.RadnikSet_Magacioner" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Radnik">
-        <PropertyRef Name="IdRad" />
-      </Principal>
-      <Dependent Role="Magacioner">
         <PropertyRef Name="IdRad" />
       </Dependent>
     </ReferentialConstraint>
@@ -457,6 +729,48 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Normer_inherits_Radnik">
+    <End Role="Radnik" Type="ModelDB.Store.RadnikSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Normer" Type="ModelDB.Store.RadnikSet_Normer" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Radnik">
+        <PropertyRef Name="IdRad" />
+      </Principal>
+      <Dependent Role="Normer">
+        <PropertyRef Name="IdRad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TrakaUPripremi_inherits_Traka">
+    <End Role="Traka" Type="ModelDB.Store.TrakaSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="TrakaUPripremi" Type="ModelDB.Store.TrakaSet_TrakaUPripremi" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Traka">
+        <PropertyRef Name="OznTr" />
+      </Principal>
+      <Dependent Role="TrakaUPripremi">
+        <PropertyRef Name="OznTr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TrakaUProizvodnji_inherits_Traka">
+    <End Role="Traka" Type="ModelDB.Store.TrakaSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="TrakaUProizvodnji" Type="ModelDB.Store.TrakaSet_TrakaUProizvodnji" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Traka">
+        <PropertyRef Name="OznTr" />
+      </Principal>
+      <Dependent Role="TrakaUProizvodnji">
+        <PropertyRef Name="OznTr" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -485,14 +799,6 @@
           <AssociationSet Name="MaterijalPriprema" Association="ModelDB.MaterijalPriprema">
             <End Role="Materijal" EntitySet="MaterijalSet" />
             <End Role="Priprema" EntitySet="PripremaSet" />
-          </AssociationSet>
-          <AssociationSet Name="NalaziSe" Association="ModelDB.NalaziSe">
-            <End Role="TrakaUPripremi" EntitySet="TrakaSet" />
-            <End Role="Priprema" EntitySet="PripremaSet" />
-          </AssociationSet>
-          <AssociationSet Name="TrakaUProizvodnjiProizvodnja" Association="ModelDB.Pripada">
-            <End Role="TrakaUProizvodnji" EntitySet="TrakaSet" />
-            <End Role="Proizvodnja" EntitySet="ProizvodnjaSet" />
           </AssociationSet>
           <AssociationSet Name="SefPripremePriprema" Association="ModelDB.NadgledaPripremu">
             <End Role="SefPripreme" EntitySet="RadnikSet" />
@@ -556,6 +862,14 @@
             <End Role="GotovProizvod" EntitySet="GotovProizvodSet" />
             <End Role="Proizvodnja" EntitySet="ProizvodnjaSet" />
           </AssociationSet>
+          <AssociationSet Name="NalaziSe" Association="ModelDB.NalaziSe">
+            <End Role="Priprema" EntitySet="PripremaSet" />
+            <End Role="TrakaUPripremi" EntitySet="TrakaSet" />
+          </AssociationSet>
+          <AssociationSet Name="ProizvodnjaTrakaUProizvodnji" Association="ModelDB.ProizvodnjaTrakaUProizvodnji">
+            <End Role="Proizvodnja" EntitySet="ProizvodnjaSet" />
+            <End Role="TrakaUProizvodnji" EntitySet="TrakaSet" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Radnik" Abstract="true">
           <Key>
@@ -565,7 +879,7 @@
           <Property Name="Ime" Type="String" Nullable="false" />
           <Property Name="Prz" Type="String" Nullable="false" />
           <Property Name="Plt" Type="Int32" Nullable="false" />
-          <Property Name="Tip" Type="Int32" Nullable="false" />
+          <Property Name="Tip" Type="ModelDB.TipRadnika" Nullable="false" />
         </EntityType>
         <EntityType Name="Direktor" BaseType="ModelDB.Radnik" >
           <NavigationProperty Name="Sef" Relationship="ModelDB.DirektorSef" FromRole="Direktor" ToRole="Sef" />
@@ -573,7 +887,7 @@
         <EntityType Name="Sef" BaseType="ModelDB.Radnik" >
           <NavigationProperty Name="Direktor" Relationship="ModelDB.DirektorSef" FromRole="Sef" ToRole="Direktor" />
           <Property Name="DirektorIdRad" Type="Int32" Nullable="false" />
-          <Property Name="Odsek" Type="Int32" Nullable="false" />
+          <Property Name="Odsek" Type="ModelDB.SefTip" Nullable="false" />
         </EntityType>
         <EntityType Name="Normer" BaseType="ModelDB.Radnik" >
           <NavigationProperty Name="Podesava" Relationship="ModelDB.NormerPodesava" FromRole="Normer" ToRole="Podesava" />
@@ -587,7 +901,7 @@
         </EntityType>
         <EntityType Name="RadnikNaTraci" BaseType="ModelDB.Radnik" >
           <Property Name="KoefRad" Type="Double" Nullable="false" />
-          <Property Name="Spec" Type="Int32" Nullable="false" />
+          <Property Name="Spec" Type="ModelDB.RadnikNaTraciTip" Nullable="false" />
           <NavigationProperty Name="Obucava" Relationship="ModelDB.ObucavaRadnikNaTraci" FromRole="RadnikNaTraci" ToRole="Obucava" />
           <NavigationProperty Name="Kontrolise" Relationship="ModelDB.KontroliseRadnikNaTraci" FromRole="RadnikNaTraci" ToRole="Kontrolise" />
           <NavigationProperty Name="Traka" Relationship="ModelDB.TrakaRadnikNaTraci" FromRole="RadnikNaTraci" ToRole="Traka" />
@@ -621,8 +935,8 @@
           <Property Name="KolPrpMat" Type="Int32" Nullable="false" />
           <Property Name="BrRadPrip" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Materijal" Relationship="ModelDB.MaterijalPriprema" FromRole="Priprema" ToRole="Materijal" />
-          <NavigationProperty Name="TrakaUPripremi" Relationship="ModelDB.NalaziSe" FromRole="Priprema" ToRole="TrakaUPripremi" />
           <NavigationProperty Name="SefPripreme" Relationship="ModelDB.NadgledaPripremu" FromRole="Priprema" ToRole="SefPripreme" />
+          <NavigationProperty Name="TrakaUPripremi" Relationship="ModelDB.NalaziSe" FromRole="Priprema" ToRole="TrakaUPripremi" />
         </EntityType>
         <EntityType Name="Proizvodnja">
           <Key>
@@ -631,9 +945,9 @@
           <Property Name="OznProiz" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="KolNapPr" Type="Int32" Nullable="false" />
           <Property Name="BrRadProiz" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="TrakaUProizvodnji" Relationship="ModelDB.Pripada" FromRole="Proizvodnja" ToRole="TrakaUProizvodnji" />
           <NavigationProperty Name="SefProizvodnje" Relationship="ModelDB.NadgledaProizvodnju" FromRole="Proizvodnja" ToRole="SefProizvodnje" />
           <NavigationProperty Name="GotovProizvod" Relationship="ModelDB.Proizvodi" FromRole="Proizvodnja" ToRole="GotovProizvod" />
+          <NavigationProperty Name="TrakaUProizvodnji" Relationship="ModelDB.ProizvodnjaTrakaUProizvodnji" FromRole="Proizvodnja" ToRole="TrakaUProizvodnji" />
         </EntityType>
         <EntityType Name="Materijal">
           <Key>
@@ -652,17 +966,17 @@
             <PropertyRef Name="OznTr" />
           </Key>
           <Property Name="OznTr" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TipTr" Type="Int32" Nullable="false" />
+          <Property Name="TipTr" Type="ModelDB.TrakaTip" Nullable="false" />
           <Property Name="BrRadTr" Type="Int32" Nullable="false" />
           <NavigationProperty Name="RadnikNaTraci" Relationship="ModelDB.TrakaRadnikNaTraci" FromRole="Traka" ToRole="RadnikNaTraci" />
           <NavigationProperty Name="Podesava" Relationship="ModelDB.TrakaPodesava" FromRole="Traka" ToRole="Podesava" />
         </EntityType>
         <EntityType Name="TrakaUPripremi" BaseType="ModelDB.Traka" >
-          <Property Name="PripremaOznPrip" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Priprema" Relationship="ModelDB.NalaziSe" FromRole="TrakaUPripremi" ToRole="Priprema" />
+          <Property Name="PripremaOznPrip" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="TrakaUProizvodnji" BaseType="ModelDB.Traka" >
-          <NavigationProperty Name="Proizvodnja" Relationship="ModelDB.Pripada" FromRole="TrakaUProizvodnji" ToRole="Proizvodnja" />
+          <NavigationProperty Name="Proizvodnja" Relationship="ModelDB.ProizvodnjaTrakaUProizvodnji" FromRole="TrakaUProizvodnji" ToRole="Proizvodnja" />
           <Property Name="ProizvodnjaOznProiz" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="RadnikSaAlatom" BaseType="ModelDB.RadnikNaTraci" >
@@ -701,7 +1015,7 @@
           <Property Name="MaterijalOznMat" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="MagacionerOdnosi">
-          <End Type="ModelDB.Magacioner" Role="Magacioner" Multiplicity="0..1" />
+          <End Type="ModelDB.Magacioner" Role="Magacioner" Multiplicity="1" />
           <End Type="ModelDB.Odnosi" Role="Odnosi" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Magacioner">
@@ -713,7 +1027,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="MaterijalOdnosi">
-          <End Type="ModelDB.Materijal" Role="Materijal" Multiplicity="0..1" />
+          <End Type="ModelDB.Materijal" Role="Materijal" Multiplicity="1" />
           <End Type="ModelDB.Odnosi" Role="Odnosi" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Materijal">
@@ -727,30 +1041,6 @@
         <Association Name="MaterijalPriprema">
           <End Type="ModelDB.Materijal" Role="Materijal" Multiplicity="*" />
           <End Type="ModelDB.Priprema" Role="Priprema" Multiplicity="1" />
-        </Association>
-        <Association Name="NalaziSe">
-          <End Type="ModelDB.TrakaUPripremi" Role="TrakaUPripremi" Multiplicity="*" />
-          <End Type="ModelDB.Priprema" Role="Priprema" Multiplicity="1" />
-          <ReferentialConstraint>
-            <Principal Role="Priprema">
-              <PropertyRef Name="OznPrip" />
-            </Principal>
-            <Dependent Role="TrakaUPripremi">
-              <PropertyRef Name="PripremaOznPrip1" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="Pripada">
-          <End Type="ModelDB.TrakaUProizvodnji" Role="TrakaUProizvodnji" Multiplicity="*" />
-          <End Type="ModelDB.Proizvodnja" Role="Proizvodnja" Multiplicity="1" />
-          <ReferentialConstraint>
-            <Principal Role="Proizvodnja">
-              <PropertyRef Name="OznProiz" />
-            </Principal>
-            <Dependent Role="TrakaUProizvodnji">
-              <PropertyRef Name="ProizvodnjaOznProiz" />
-            </Dependent>
-          </ReferentialConstraint>
         </Association>
         <Association Name="NadgledaPripremu">
           <End Type="ModelDB.SefPripreme" Role="SefPripreme" Multiplicity="*" />
@@ -788,7 +1078,7 @@
         </EntityType>
         <Association Name="ObucavaMajstorica">
           <End Type="ModelDB.Obucava" Role="Obucava" Multiplicity="*" />
-          <End Type="ModelDB.Majstorica" Role="Majstorica" Multiplicity="0..1" />
+          <End Type="ModelDB.Majstorica" Role="Majstorica" Multiplicity="1" />
           <ReferentialConstraint>
             <Principal Role="Majstorica">
               <PropertyRef Name="IdRad" />
@@ -800,7 +1090,7 @@
         </Association>
         <Association Name="ObucavaRadnikNaTraci">
           <End Type="ModelDB.Obucava" Role="Obucava" Multiplicity="*" />
-          <End Type="ModelDB.RadnikNaTraci" Role="RadnikNaTraci" Multiplicity="0..1" />
+          <End Type="ModelDB.RadnikNaTraci" Role="RadnikNaTraci" Multiplicity="1" />
           <ReferentialConstraint>
             <Principal Role="RadnikNaTraci">
               <PropertyRef Name="IdRad" />
@@ -822,7 +1112,7 @@
         </EntityType>
         <Association Name="KontroliseMajstorica">
           <End Type="ModelDB.Kontrolise" Role="Kontrolise" Multiplicity="*" />
-          <End Type="ModelDB.Majstorica" Role="Majstorica" Multiplicity="0..1" />
+          <End Type="ModelDB.Majstorica" Role="Majstorica" Multiplicity="1" />
           <ReferentialConstraint>
             <Principal Role="Majstorica">
               <PropertyRef Name="IdRad" />
@@ -834,7 +1124,7 @@
         </Association>
         <Association Name="KontroliseRadnikNaTraci">
           <End Type="ModelDB.Kontrolise" Role="Kontrolise" Multiplicity="*" />
-          <End Type="ModelDB.RadnikNaTraci" Role="RadnikNaTraci" Multiplicity="0..1" />
+          <End Type="ModelDB.RadnikNaTraci" Role="RadnikNaTraci" Multiplicity="1" />
           <ReferentialConstraint>
             <Principal Role="RadnikNaTraci">
               <PropertyRef Name="IdRad" />
@@ -856,7 +1146,7 @@
         </EntityType>
         <Association Name="KoristiRadnikSaAlatom">
           <End Type="ModelDB.Koristi" Role="Koristi" Multiplicity="*" />
-          <End Type="ModelDB.RadnikSaAlatom" Role="RadnikSaAlatom" Multiplicity="0..1" />
+          <End Type="ModelDB.RadnikSaAlatom" Role="RadnikSaAlatom" Multiplicity="1" />
           <ReferentialConstraint>
             <Principal Role="RadnikSaAlatom">
               <PropertyRef Name="IdRad" />
@@ -868,7 +1158,7 @@
         </Association>
         <Association Name="KoristiAlat">
           <End Type="ModelDB.Koristi" Role="Koristi" Multiplicity="*" />
-          <End Type="ModelDB.Alat" Role="Alat" Multiplicity="0..1" />
+          <End Type="ModelDB.Alat" Role="Alat" Multiplicity="1" />
           <ReferentialConstraint>
             <Principal Role="Alat">
               <PropertyRef Name="SrBrAl" />
@@ -890,7 +1180,7 @@
         </EntityType>
         <Association Name="RadnikZaMasinomUpotrebljava">
           <End Type="ModelDB.Upotrebljava" Role="Upotrebljava" Multiplicity="*" />
-          <End Type="ModelDB.RadnikZaMasinom" Role="RadnikZaMasinom" Multiplicity="0..1" />
+          <End Type="ModelDB.RadnikZaMasinom" Role="RadnikZaMasinom" Multiplicity="1" />
           <ReferentialConstraint>
             <Principal Role="RadnikZaMasinom">
               <PropertyRef Name="IdRad" />
@@ -901,7 +1191,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="MasinaUpotrebljava">
-          <End Type="ModelDB.Masina" Role="Masina" Multiplicity="0..1" />
+          <End Type="ModelDB.Masina" Role="Masina" Multiplicity="1" />
           <End Type="ModelDB.Upotrebljava" Role="Upotrebljava" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Masina">
@@ -936,7 +1226,7 @@
           <Property Name="BrzTr" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="NormerPodesava">
-          <End Type="ModelDB.Normer" Role="Normer" Multiplicity="0..1" />
+          <End Type="ModelDB.Normer" Role="Normer" Multiplicity="1" />
           <End Type="ModelDB.Podesava" Role="Podesava" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Normer">
@@ -948,7 +1238,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="TrakaPodesava">
-          <End Type="ModelDB.Traka" Role="Traka" Multiplicity="0..1" />
+          <End Type="ModelDB.Traka" Role="Traka" Multiplicity="1" />
           <End Type="ModelDB.Podesava" Role="Podesava" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Traka">
@@ -963,7 +1253,7 @@
           <Key>
             <PropertyRef Name="SrBrPr" />
           </Key>
-          <Property Name="SrBrPr" Type="String" Nullable="false" />
+          <Property Name="SrBrPr" Type="Int32" Nullable="false" />
           <Property Name="Cena" Type="Int32" Nullable="false" />
           <Property Name="DuzPr" Type="Int32" Nullable="false" />
           <Property Name="SirPr" Type="Int32" Nullable="false" />
@@ -982,6 +1272,50 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="NalaziSe">
+          <End Type="ModelDB.Priprema" Role="Priprema" Multiplicity="1" />
+          <End Type="ModelDB.TrakaUPripremi" Role="TrakaUPripremi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Priprema">
+              <PropertyRef Name="OznPrip" />
+            </Principal>
+            <Dependent Role="TrakaUPripremi">
+              <PropertyRef Name="PripremaOznPrip" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProizvodnjaTrakaUProizvodnji">
+          <End Type="ModelDB.Proizvodnja" Role="Proizvodnja" Multiplicity="1" />
+          <End Type="ModelDB.TrakaUProizvodnji" Role="TrakaUProizvodnji" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proizvodnja">
+              <PropertyRef Name="OznProiz" />
+            </Principal>
+            <Dependent Role="TrakaUProizvodnji">
+              <PropertyRef Name="ProizvodnjaOznProiz" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EnumType Name="TipRadnika">
+          <Member Name="DIREKTOR" Value="0" />
+          <Member Name="SEF" Value="1" />
+          <Member Name="NORMER" Value="2" />
+          <Member Name="MAGACIONER" Value="3" />
+          <Member Name="MAJSTORICA" Value="4" />
+          <Member Name="RADNIKNATRACI" Value="5" />
+        </EnumType>
+        <EnumType Name="SefTip">
+          <Member Name="SefPripreme" Value="0" />
+          <Member Name="SefProizvodnje" Value="1" />
+        </EnumType>
+        <EnumType Name="TrakaTip">
+          <Member Name="TrakaUPripremi" Value="0" />
+          <Member Name="TrakaUProizvodnji" />
+        </EnumType>
+        <EnumType Name="RadnikNaTraciTip">
+          <Member Name="RadnikSaAlatom" Value="0" />
+          <Member Name="RadnikZaMasinom" />
+        </EnumType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -995,6 +1329,7 @@
           <ScalarProperty Name="Ime" ColumnName="Ime" />
           <ScalarProperty Name="Prz" ColumnName="Prz" />
           <ScalarProperty Name="Plt" ColumnName="Plt" />
+          <ScalarProperty Name="Tip" ColumnName="Tip" />
         </MappingFragment>
       </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(ModelDB.Direktor)">
@@ -1006,26 +1341,24 @@
         <MappingFragment StoreEntitySet="RadnikSet_Sef">
           <ScalarProperty Name="IdRad" ColumnName="IdRad" />
           <ScalarProperty Name="DirektorIdRad" ColumnName="DirektorIdRad" />
-        </MappingFragment>
-      </EntityTypeMapping>
-      <EntityTypeMapping TypeName="IsTypeOf(ModelDB.SefPripreme)">
-        <MappingFragment StoreEntitySet="RadnikSet_SefPripreme">
-          <ScalarProperty Name="IdRad" ColumnName="IdRad" />
-        </MappingFragment>
-      </EntityTypeMapping>
-      <EntityTypeMapping TypeName="IsTypeOf(ModelDB.SefProizvodnje)">
-        <MappingFragment StoreEntitySet="RadnikSet_SefProizvodnje">
-          <ScalarProperty Name="IdRad" ColumnName="IdRad" />
-        </MappingFragment>
-      </EntityTypeMapping>
-      <EntityTypeMapping TypeName="IsTypeOf(ModelDB.Normer)">
-        <MappingFragment StoreEntitySet="RadnikSet_Normer">
-          <ScalarProperty Name="IdRad" ColumnName="IdRad" />
+          <ScalarProperty Name="Odsek" ColumnName="Odsek" />
         </MappingFragment>
       </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(ModelDB.Magacioner)">
         <MappingFragment StoreEntitySet="RadnikSet_Magacioner">
           <ScalarProperty Name="IdRad" ColumnName="IdRad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ModelDB.SefPripreme)">
+        <MappingFragment StoreEntitySet="RadnikSet_SefPripreme">
+          <ScalarProperty Name="IdRad" ColumnName="IdRad" />
+          <ScalarProperty Name="PripremaOznPrip" ColumnName="PripremaOznPrip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ModelDB.SefProizvodnje)">
+        <MappingFragment StoreEntitySet="RadnikSet_SefProizvodnje">
+          <ScalarProperty Name="IdRad" ColumnName="IdRad" />
+          <ScalarProperty Name="ProizvodnjaOznProiz" ColumnName="ProizvodnjaOznProiz" />
         </MappingFragment>
       </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(ModelDB.Majstorica)">
@@ -1037,6 +1370,8 @@
         <MappingFragment StoreEntitySet="RadnikSet_RadnikNaTraci">
           <ScalarProperty Name="IdRad" ColumnName="IdRad" />
           <ScalarProperty Name="KoefRad" ColumnName="KoefRad" />
+          <ScalarProperty Name="Spec" ColumnName="Spec" />
+          <ScalarProperty Name="TrakaOznTr" ColumnName="TrakaOznTr" />
         </MappingFragment>
       </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(ModelDB.RadnikSaAlatom)">
@@ -1046,6 +1381,11 @@
       </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(ModelDB.RadnikZaMasinom)">
         <MappingFragment StoreEntitySet="RadnikSet_RadnikZaMasinom">
+          <ScalarProperty Name="IdRad" ColumnName="IdRad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(ModelDB.Normer)">
+        <MappingFragment StoreEntitySet="RadnikSet_Normer">
           <ScalarProperty Name="IdRad" ColumnName="IdRad" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -1083,16 +1423,20 @@
       <EntityTypeMapping TypeName="IsTypeOf(ModelDB.Traka)">
         <MappingFragment StoreEntitySet="TrakaSet">
           <ScalarProperty Name="OznTr" ColumnName="OznTr" />
+          <ScalarProperty Name="TipTr" ColumnName="TipTr" />
+          <ScalarProperty Name="BrRadTr" ColumnName="BrRadTr" />
         </MappingFragment>
       </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(ModelDB.TrakaUPripremi)">
         <MappingFragment StoreEntitySet="TrakaSet_TrakaUPripremi">
           <ScalarProperty Name="OznTr" ColumnName="OznTr" />
+          <ScalarProperty Name="PripremaOznPrip" ColumnName="PripremaOznPrip" />
         </MappingFragment>
       </EntityTypeMapping>
       <EntityTypeMapping TypeName="IsTypeOf(ModelDB.TrakaUProizvodnji)">
         <MappingFragment StoreEntitySet="TrakaSet_TrakaUProizvodnji">
           <ScalarProperty Name="OznTr" ColumnName="OznTr" />
+          <ScalarProperty Name="ProizvodnjaOznProiz" ColumnName="ProizvodnjaOznProiz" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -1114,6 +1458,75 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="OdnosiSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelDB.Odnosi)">
+        <MappingFragment StoreEntitySet="OdnosiSet">
+          <ScalarProperty Name="MagacionerIdRad" ColumnName="MagacionerIdRad" />
+          <ScalarProperty Name="MaterijalOznMat" ColumnName="MaterijalOznMat" />
+          <ScalarProperty Name="KolMat" ColumnName="KolMat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ObucavaSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelDB.Obucava)">
+        <MappingFragment StoreEntitySet="ObucavaSet">
+          <ScalarProperty Name="MajstoricaIdRad" ColumnName="MajstoricaIdRad" />
+          <ScalarProperty Name="RadnikNaTraciIdRad" ColumnName="RadnikNaTraciIdRad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KontroliseSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelDB.Kontrolise)">
+        <MappingFragment StoreEntitySet="KontroliseSet">
+          <ScalarProperty Name="MajstoricaIdRad" ColumnName="MajstoricaIdRad" />
+          <ScalarProperty Name="RadnikNaTraciIdRad2" ColumnName="RadnikNaTraciIdRad2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KoristiSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelDB.Koristi)">
+        <MappingFragment StoreEntitySet="KoristiSet">
+          <ScalarProperty Name="RadnikSaAlatomIdRad" ColumnName="RadnikSaAlatomIdRad" />
+          <ScalarProperty Name="AlatSrBrAl" ColumnName="AlatSrBrAl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UpotrebljavaSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelDB.Upotrebljava)">
+        <MappingFragment StoreEntitySet="UpotrebljavaSet">
+          <ScalarProperty Name="RadnikZaMasinomIdRad" ColumnName="RadnikZaMasinomIdRad" />
+          <ScalarProperty Name="MasinaSrBrMsn" ColumnName="MasinaSrBrMsn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PodesavaSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelDB.Podesava)">
+        <MappingFragment StoreEntitySet="PodesavaSet">
+          <ScalarProperty Name="NormerIdRad" ColumnName="NormerIdRad" />
+          <ScalarProperty Name="TrakaOznTr" ColumnName="TrakaOznTr" />
+          <ScalarProperty Name="BrzTr" ColumnName="BrzTr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GotovProizvodSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelDB.GotovProizvod)">
+        <MappingFragment StoreEntitySet="GotovProizvodSet">
+          <ScalarProperty Name="SrBrPr" ColumnName="SrBrPr" />
+          <ScalarProperty Name="Cena" ColumnName="Cena" />
+          <ScalarProperty Name="DuzPr" ColumnName="DuzPr" />
+          <ScalarProperty Name="SirPr" ColumnName="SirPr" />
+          <ScalarProperty Name="ProizvodnjaOznProiz" ColumnName="ProizvodnjaOznProiz" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="MaterijalPriprema" TypeName="ModelDB.MaterijalPriprema" StoreEntitySet="MaterijalSet">
+      <EndProperty Name="Priprema">
+        <ScalarProperty Name="OznPrip" ColumnName="Priprema_OznPrip" />
+      </EndProperty>
+      <EndProperty Name="Materijal">
+        <ScalarProperty Name="OznMat" ColumnName="OznMat" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
@@ -1130,6 +1543,7 @@
         <DesignerProperty Name="EnablePluralization" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
         <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
       </DesignerInfoPropertySet>
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->

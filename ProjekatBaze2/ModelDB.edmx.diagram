@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="58eee7566ff949c79cce5bbf7e420aee" Name="Diagram1" ZoomLevel="53" >
+      <Diagram DiagramId="58eee7566ff949c79cce5bbf7e420aee" Name="Diagram1" ZoomLevel="85" >
         <EntityTypeShape EntityType="ModelDB.Radnik" Width="1.5" PointX="11.375" PointY="0.5" />
         <EntityTypeShape EntityType="ModelDB.Direktor" Width="1.5" PointX="2.25" PointY="3.625" />
         <InheritanceConnector EntityType="ModelDB.Direktor" />
@@ -30,7 +30,6 @@
         <EntityTypeShape EntityType="ModelDB.TrakaUPripremi" Width="1.5" PointX="4.375" PointY="12.5" />
         <InheritanceConnector EntityType="ModelDB.TrakaUPripremi" />
         <EntityTypeShape EntityType="ModelDB.TrakaUProizvodnji" Width="1.5" PointX="7.5" PointY="12.5" />
-        <InheritanceConnector EntityType="ModelDB.TrakaUProizvodnji" />
         <EntityTypeShape EntityType="ModelDB.RadnikSaAlatom" Width="1.5" PointX="21.375" PointY="6.625" />
         <InheritanceConnector EntityType="ModelDB.RadnikSaAlatom" />
         <EntityTypeShape EntityType="ModelDB.RadnikZaMasinom" Width="1.5" PointX="25" PointY="6.625" />
@@ -41,8 +40,6 @@
         <AssociationConnector Association="ModelDB.MagacionerOdnosi" />
         <AssociationConnector Association="ModelDB.MaterijalOdnosi" />
         <AssociationConnector Association="ModelDB.MaterijalPriprema" />
-        <AssociationConnector Association="ModelDB.NalaziSe" />
-        <AssociationConnector Association="ModelDB.Pripada" />
         <AssociationConnector Association="ModelDB.NadgledaPripremu" />
         <AssociationConnector Association="ModelDB.NadgledaProizvodnju" />
         <EntityTypeShape EntityType="ModelDB.Obucava" Width="1.5" PointX="19" PointY="3.625" />
@@ -58,23 +55,30 @@
         <AssociationConnector Association="ModelDB.RadnikZaMasinomUpotrebljava" />
         <AssociationConnector Association="ModelDB.MasinaUpotrebljava" />
         <AssociationConnector Association="ModelDB.TrakaRadnikNaTraci" ManuallyRouted="true" >
-          <ConnectorPoint PointX="6" PointY="16.480286458333335" />
-          <ConnectorPoint PointX="6" PointY="16.804173027196768" />
-          <ConnectorPoint PointX="17.64125" PointY="16.804173027196768" />
-          <ConnectorPoint PointX="17.64125" PointY="5.5502425130208328" />
+          <ConnectorPoint PointX="6" PointY="14.5" />
+          <ConnectorPoint PointX="6" PointY="5.5502425130208328" />
+          <ConnectorPoint PointX="10.979166666666666" PointY="5.5502425130208319" />
+          <ConnectorPoint PointX="11.145833333333334" PointY="5.5502425130208328" />
+          <ConnectorPoint PointX="13.541666666666666" PointY="5.5502425130208319" />
+          <ConnectorPoint PointX="13.708333333333334" PointY="5.5502425130208328" />
+          <ConnectorPoint PointX="16.291666666666668" PointY="5.5502425130208319" />
+          <ConnectorPoint PointX="16.458333333333332" PointY="5.5502425130208328" />
           <ConnectorPoint PointX="23.375" PointY="5.5502425130208328" />
         </AssociationConnector>
         <EntityTypeShape EntityType="ModelDB.Podesava" Width="1.5" PointX="10.375" PointY="7.875" />
         <AssociationConnector Association="ModelDB.NormerPodesava" />
         <AssociationConnector Association="ModelDB.TrakaPodesava" ManuallyRouted="true" >
           <ConnectorPoint PointX="6.9062525" PointY="14.5" />
-          <ConnectorPoint PointX="6.9062525" PointY="8.21875" />
-          <ConnectorPoint PointX="8.1666666666666661" PointY="8.21875" />
-          <ConnectorPoint PointX="8.3333333333333339" PointY="8.21875" />
-          <ConnectorPoint PointX="10.375" PointY="8.21875" />
+          <ConnectorPoint PointX="6.9062525" PointY="13.320787760416664" />
+          <ConnectorPoint PointX="8.1910468559582057" PointY="12.037195768355417" />
+          <ConnectorPoint PointX="8.3089531440417943" PointY="11.919399821871135" />
+          <ConnectorPoint PointX="10.375" PointY="9.8552864583333335" />
         </AssociationConnector>
         <EntityTypeShape EntityType="ModelDB.GotovProizvod" Width="1.5" PointX="10.75" PointY="12.5" />
         <AssociationConnector Association="ModelDB.Proizvodi" />
+        <InheritanceConnector EntityType="ModelDB.TrakaUProizvodnji" />
+        <AssociationConnector Association="ModelDB.NalaziSe" />
+        <AssociationConnector Association="ModelDB.ProizvodnjaTrakaUProizvodnji" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
