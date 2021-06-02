@@ -13,11 +13,11 @@ namespace ProjekatBaze2
     
     public enum TipRadnika : int
     {
-        Direktor = 0,
-        Sef = 1,
-        Normer = 2,
-        Magacioner = 3,
-        Majstorica = 4,
-        RadnikNaTraci = 5
+        DIREKTOR = 0,
+        SEF = 1,
+        NORMER = 2,
+        MAGACIONER = 3,
+        MAJSTORICA = 4,
+        RADNIKNATRACI = 5
     }
 }

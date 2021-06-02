@@ -7,18 +7,18 @@
         mc:Ignorable="d"
         Title="AddUpdateDirektor" Height="450" Width="800">
     <Grid Margin="0,0,-8,0">
-        <TextBlock Text="Jmbg: " Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" Margin="44,59,686,331"/>
+        <TextBlock Text="Id:" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" Margin="44,59,686,331"/>
         <TextBlock Text="Ime: " Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" Margin="52,159,694,231"/>
         <TextBlock Text="Prezime: " Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" Margin="31,259,673,131"/>
 
-        <TextBox Width="214" Height="50" Text="{Binding Direktor.Jmbg}" IsEnabled="{Binding TextBoxEnabled}" Margin="160,49,0,320" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22"/>
+        <TextBox Width="214" Height="50" Text="{Binding Direktor.IdRad}" Margin="160,49,0,320" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22"/>
 
         <TextBox Width="214" Height="55" Text="{Binding Direktor.Ime}" Margin="160,149,0,215" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22"/>
 
         <TextBox Width="214" Height="52" Text="{Binding Direktor.Prz}" Margin="160,249,0,118" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22"/>
         <TextBlock Text="Plata: " Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" Margin="392,59,320,331"/>
-        <TextBox Width="219" Height="50" Text="{Binding Direktor.Plt}" IsEnabled="{Binding TextBoxEnabled}" Margin="486,49,0,320" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22"/>
-        <Button Content="Save" HorizontalAlignment="Left" Margin="486,249,0,0" VerticalAlignment="Top" Width="186" Height="45" Command="{Binding Path=AddDirektorCommand}"/>
+        <TextBox Width="219" Height="50" Text="{Binding Direktor.Plt}" Margin="486,49,0,320" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22"/>
+        <Button Content="Save" HorizontalAlignment="Left" Margin="519,336,0,0" VerticalAlignment="Top" Width="186" Height="45" Command="{Binding Path=AddDirektorCommand}"/>
 
     </Grid>
 </Window>

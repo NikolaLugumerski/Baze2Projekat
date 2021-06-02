@@ -55,6 +55,7 @@
     <Compile Include="Alat.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Contexts\DirektorContext.cs" />
     <Compile Include="Direktor.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
@@ -129,6 +130,7 @@
     <Compile Include="RadnikZaMasinom.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Repositories\IDirektorRepository.cs" />
     <Compile Include="Sef.cs">
       <DependentUpon>ModelDB.tt</DependentUpon>
     </Compile>

@@ -1,4 +1,6 @@
 ﻿using ProjekatBaze2;
+using ProjekatBaze2.Contexts;
+using ProjekatBaze2.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,8 +42,10 @@ namespace ProgettiUI.Commands
 
         public void Execute(object parameter)
         {
-         
-         MessageBoxResult result = MessageBox.Show("Would you like to greet the world with a \"Hello, world\"?", "My App", MessageBoxButton.YesNoCancel);
+            Direktor.Tip = TipRadnika.DIREKTOR;
+            DirektorContext direktorContext = new DirektorContext();
+            direktorContext.Add(Direktor);
+
         }
 
 

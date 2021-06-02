@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjekatBaze2", "ProjekatBa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProgettiUI", "ProgettiUI\ProgettiUI.csproj", "{38F130EE-A4A1-40DE-943B-39E208BE02C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{1E2C5E72-D1D9-4E06-805D-86D0B891B1CB}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{38F130EE-A4A1-40DE-943B-39E208BE02C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38F130EE-A4A1-40DE-943B-39E208BE02C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38F130EE-A4A1-40DE-943B-39E208BE02C5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1E2C5E72-D1D9-4E06-805D-86D0B891B1CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1E2C5E72-D1D9-4E06-805D-86D0B891B1CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1E2C5E72-D1D9-4E06-805D-86D0B891B1CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1E2C5E72-D1D9-4E06-805D-86D0B891B1CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
